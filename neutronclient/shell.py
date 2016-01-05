@@ -62,6 +62,7 @@ from neutronclient.neutron.v2_0.lb.v2 import pool as lbaas_pool
 from neutronclient.neutron.v2_0.lb import vip as lb_vip
 from neutronclient.neutron.v2_0 import metering
 from neutronclient.neutron.v2_0 import network
+from neutronclient.neutron.v2_0 import network_ip_usage
 from neutronclient.neutron.v2_0.nsx import networkgateway
 from neutronclient.neutron.v2_0.nsx import qos_queue
 from neutronclient.neutron.v2_0 import port
@@ -152,6 +153,7 @@ COMMAND_V2 = {
     'net-create': network.CreateNetwork,
     'net-delete': network.DeleteNetwork,
     'net-update': network.UpdateNetwork,
+    'network-ip-usage-list': network_ip_usage.ListIpNetworkUsage,
     'subnet-list': subnet.ListSubnet,
     'subnet-show': subnet.ShowSubnet,
     'subnet-create': subnet.CreateSubnet,
