@@ -23,13 +23,12 @@ class ListIpNetworkUsage(cmd_base.ListCommand):
     
     resource = 'network_ip_usage'
     resource_plural = '%ss' % resource
-    object_path = '%s' % resource_plural
-    resource_path = '/%s/%%s' % resource_plural
     list_columns = ['id', 'name', 'total_ips', 'used_ips',
                     'subnet_ip_allocations', 'ip_version', 'network_id',
                     'network_name']
     paginations_support = True
     sorting_support = True
+
 
 class ShowIpUsage(neutronV20.ShowCommand):
     """Show information of network usage for a given subnet."""
