@@ -22,7 +22,7 @@ class ListIpNetworkUsage(cmd_base.ListCommand):
     """ List ip usage of networks """
     
     resource = 'network_ip_usage'
-    resource_plural = '%ses' % resource
+    resource_plural = '%ss' % resource
     object_path = '%s' % resource_plural
     resource_path = '/%s/%%s' % resource_plural
     list_columns = ['id', 'name', 'total_ips', 'used_ips',
