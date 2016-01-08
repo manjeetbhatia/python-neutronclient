@@ -409,6 +409,8 @@ class Client(ClientBase):
     flavor_profile_binding_path = flavor_path + service_profile_path
     availability_zones_path = "/availability_zones"
 
+    network_ip_usage_path = '/network-ip-usages'
+
     # API has no way to report plurals, so we have to hard code them
     EXTED_PLURALS = {'routers': 'router',
                      'floatingips': 'floatingip',
@@ -445,6 +447,7 @@ class Client(ClientBase):
                      'bandwidth_limit_rules': 'bandwidth_limit_rule',
                      'rule_types': 'rule_type',
                      'flavors': 'flavor',
+                     'network_ip_usages': 'network_ip_usage',
                      }
 
     @APIParamsCall
@@ -1684,6 +1687,12 @@ class Client(ClientBase):
     def list_availability_zones(self, retrieve_all=True, **_params):
         """Fetches a list of all availability zones."""
         return self.list('availability_zones', self.availability_zones_path,
+                         retrieve_all, **_params)
+
+    @APIParamsCall
+    def list_network_ip_usages(self, retrieve_all=True, **_params):
+        # Pass filters in "params" argument to do_request
+        return self.list('network_ip_usages', self.network_ip_usage_path,
                          retrieve_all, **_params)
 
     def __init__(self, **kwargs):
